@@ -17,7 +17,9 @@ Configuration for SMTP server can be changed like this:
 * Select Open Project Editor - > Project Settings -> Deployment Descriptor
 * Scroll down for "Work Item handlers" section and find an entry with "Email"
 * The Email Task is backed by corresponding handler, which is configured like this:
+```
 new org.jbpm.process.workitem.email.EmailWorkItemHandler("localhost","2025","arbitraryUser","arbitraryPassword")
+```
 parameters are as follows:
 1. smtp server host
 2. smtp server port
