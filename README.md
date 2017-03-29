@@ -1,10 +1,12 @@
 # PV207 HOW-TO
 
+
 This readme explains how to:
 
 * Install Red Hat JBoss BPM Suite
 * Clone this repository its projects.
  
+
 If anything is unclear feel free to contact me @ 418132@mail.muni.cz
 
 ### Installation
