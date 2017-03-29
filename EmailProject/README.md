@@ -1,7 +1,7 @@
 Before any email can be sent, SMTP server has to be configured.
 
 This project uses smtp server with runs on localhost and is bound to port 2025.
-To achieve this, I have used FakeSMTP server which can be downloaded from here
+To achieve this, I have used FakeSMTP server which can be downloaded from
 http://nilhcem.com/FakeSMTP/download.html
 and you can run it like this:
 
