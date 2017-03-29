@@ -1,6 +1,6 @@
 # PV207 HOW-TO
 
-This readme should explain how to BPM Suite  this, repository and projects inside. 
+This readme should explain how to BPM Suite, this repository and projects inside. 
 If anything is unclear feel free to contact me @ 418132@mail.muni.cz
 
 ### Installation
