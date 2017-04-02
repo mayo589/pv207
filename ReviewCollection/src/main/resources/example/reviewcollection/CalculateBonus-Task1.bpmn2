@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_zwO6oBeaEeeoNKZWq4d_JQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_reviewCollectionItem" structureRef="java.util.ArrayList"/>
+  <bpmn2:itemDefinition id="_numOfReviewsItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_reviewCollectionOutputItem" structureRef="java.util.ArrayList"/>
+  <bpmn2:itemDefinition id="_employeeItem" structureRef="example.reviewcollection.Employee"/>
+  <bpmn2:itemDefinition id="_outcomeItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_bonusAmountItem" structureRef="Integer"/>
+  <bpmn2:process id="ReviewCollection.CalculateBonus" drools:packageName="org.jbpm" drools:version="1.0" name="CalculateBonus" isExecutable="true">
+    <bpmn2:property id="reviewCollection" itemSubjectRef="_reviewCollectionItem"/>
+    <bpmn2:property id="numOfReviews" itemSubjectRef="_numOfReviewsItem"/>
+    <bpmn2:property id="reviewCollectionOutput" itemSubjectRef="_reviewCollectionOutputItem"/>
+    <bpmn2:property id="employee" itemSubjectRef="_employeeItem"/>
+    <bpmn2:property id="outcome" itemSubjectRef="_outcomeItem"/>
+    <bpmn2:property id="bonusAmount" itemSubjectRef="_bonusAmountItem"/>
+    <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>_21CDA2B6-BE9D-4464-88F2-C86F0AE63C17</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_B2A5106C-749F-4130-8619-8B958A35F692" drools:selectable="true" color:background-color="#ff6347" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_EC08691F-C259-4C4C-B5D3-2E5BAE5BDE77</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="_E60DD0E3-A0B5-4268-80CC-D71DE51849ED" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Helper Script Task 1" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Helper Script Task 1]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_21CDA2B6-BE9D-4464-88F2-C86F0AE63C17</bpmn2:incoming>
+      <bpmn2:outgoing>_EC08691F-C259-4C4C-B5D3-2E5BAE5BDE77</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[System.out.println("Setting up ** " + numOfReviews + " ** reviews in collection of employee " + employee.toString() + ".");
+
+// create collection of reviews based on submitted employee.
+//
+
+java.util.List reviews_collection_tmp = new java.util.ArrayList();
+kcontext.setVariable("reviewCollection",reviews_collection_tmp);
+
+for (int i = numOfReviews; i > 0; i = i-1)
+{
+  reviews_collection_tmp.add(employee);
+}
+
+// create a collection to hold our multi-instance results.
+//
+java.util.List reviews_results_tmp = new java.util.ArrayList();
+kcontext.setVariable("reviewCollectionOutput",reviews_results_tmp);
+System.out.println("variable set");
+// set our outcome to false.
+kcontext.setVariable("outcome",new Boolean(false));
+System.out.println("Finished populating collection with ** " + numOfReviews + " ** employee reviews.");]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="_21CDA2B6-BE9D-4464-88F2-C86F0AE63C17" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="processStartEvent" targetRef="_E60DD0E3-A0B5-4268-80CC-D71DE51849ED"/>
+    <bpmn2:sequenceFlow id="_EC08691F-C259-4C4C-B5D3-2E5BAE5BDE77" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_E60DD0E3-A0B5-4268-80CC-D71DE51849ED" targetRef="_B2A5106C-749F-4130-8619-8B958A35F692"/>
+    <bpmn2:textAnnotation id="_DEB7A607-57C8-4ABF-ADE6-0AC9D4CEE21B" drools:selectable="true" color:background-color="" color:border-color="#000000" color:color="#000000">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[- A number of variables are present in this process. Familiarize yourself with them.
+- Create a Human Task with the following mapping:
+   - in variable mapped to employee process variable
+  - in variable mapped to bonusAmount
+  - out variable mapped to a number of reviews necessary to approve this amount
+- integrate this Human Task into the workflow so that:
+  - The start event is connected as an in flow
+  - The Helper Script Task 1 is connected as an out flow]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:text>- A number of variables are present in this process. Familiarize yourself with them. - Create a Human Task with the following mapping:    - in variable mapped to employee process variable   - in variable mapped to bonusAmount   - out variable mapped to a number of reviews necessary to approve this amount - integrate this Human Task into the workflow so that:   - The start event is connected as an in flow   - The Helper Script Task 1 is connected as an out flow</bpmn2:text>
+    </bpmn2:textAnnotation>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_zwPhsBeaEeeoNKZWq4d_JQ">
+    <bpmndi:BPMNPlane id="_zwPhsReaEeeoNKZWq4d_JQ" bpmnElement="ReviewCollection.CalculateBonus">
+      <bpmndi:BPMNShape id="_zwPhsheaEeeoNKZWq4d_JQ" bpmnElement="processStartEvent">
+        <dc:Bounds height="30.0" width="30.0" x="120.0" y="165.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_zwPhsxeaEeeoNKZWq4d_JQ" bpmnElement="_B2A5106C-749F-4130-8619-8B958A35F692">
+        <dc:Bounds height="28.0" width="28.0" x="300.0" y="165.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_zwPhtBeaEeeoNKZWq4d_JQ" bpmnElement="_E60DD0E3-A0B5-4268-80CC-D71DE51849ED">
+        <dc:Bounds height="80.0" width="100.0" x="180.0" y="139.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_zwPhtReaEeeoNKZWq4d_JQ" bpmnElement="_DEB7A607-57C8-4ABF-ADE6-0AC9D4CEE21B">
+        <dc:Bounds height="145.0" width="357.0" x="88.0" y="290.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_zwPhtheaEeeoNKZWq4d_JQ" bpmnElement="_21CDA2B6-BE9D-4464-88F2-C86F0AE63C17" sourceElement="_zwPhsheaEeeoNKZWq4d_JQ" targetElement="_zwPhtBeaEeeoNKZWq4d_JQ">
+        <di:waypoint xsi:type="dc:Point" x="135.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="230.0" y="179.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_zwPhtxeaEeeoNKZWq4d_JQ" bpmnElement="_EC08691F-C259-4C4C-B5D3-2E5BAE5BDE77" sourceElement="_zwPhtBeaEeeoNKZWq4d_JQ" targetElement="_zwPhsxeaEeeoNKZWq4d_JQ">
+        <di:waypoint xsi:type="dc:Point" x="230.0" y="179.0"/>
+        <di:waypoint xsi:type="dc:Point" x="314.0" y="179.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="_zwPhuBeaEeeoNKZWq4d_JQ" type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters" baseTimeUnit="min"/>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_EC08691F-C259-4C4C-B5D3-2E5BAE5BDE77" id="_zwPhuReaEeeoNKZWq4d_JQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_21CDA2B6-BE9D-4464-88F2-C86F0AE63C17" id="_zwPhuheaEeeoNKZWq4d_JQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E60DD0E3-A0B5-4268-80CC-D71DE51849ED" id="_zwPhuxeaEeeoNKZWq4d_JQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="processStartEvent" id="_zwPhvBeaEeeoNKZWq4d_JQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B2A5106C-749F-4130-8619-8B958A35F692" id="_zwPhvReaEeeoNKZWq4d_JQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_zwO6oBeaEeeoNKZWq4d_JQ</bpmn2:source>
+    <bpmn2:target>_zwO6oBeaEeeoNKZWq4d_JQ</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
