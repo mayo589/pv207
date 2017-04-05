@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>example</groupId>
-  <artifactId>MISubProcess-scipted</artifactId>
+  <artifactId>MISubProcess-scripted</artifactId>
   <version>1.0</version>
   <packaging>kjar</packaging>
-  <name>MISubProcess-scipted</name>
+  <name>MISubProcess-scripted</name>
   <description>This project contains a workflow that collects a number of reviews and counts the employee quarterly bonus.</description>
   <repositories>
     <repository>
