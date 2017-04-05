@@ -16,5 +16,4 @@ The project, once completed, has the following workflow:
 
 * Familiarize yourself with the Data Object employee and all the pre-set variables.
 * Do not change variable names; otherwise, the helper script tasks may not work.
-* Be sure to set the Human Tasks to correct group or actor. When debugging, you can set it to yourself. However, when done, set the tasks to the `HR` group.
 * Save often.
