@@ -47,7 +47,7 @@ Click "Clone"
 Once done, click Authoring -> Project Authoring to see the Project Explorer menu. Navigation bar looks like this:
 <organizational_unit_name>  >> <repository_name> >> <project_name>
 
-![Navigation](https://ctrlv.cz/shots/2017/03/29/MhEi.png)
+![Navigation](https://ctrlv.cz/shots/2017/04/09/z9JE.png)
 
 Navigate between different repositories and projects by clicking on respective links.
 Click on repository and select the one you have just cloned.
