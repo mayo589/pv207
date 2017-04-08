@@ -1,0 +1,9 @@
+
+<form id="823007131">
+<property name="name" value="CustomWorkItem.CustomWorkItemDemonstration-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<dataHolder inputId="" name="#E9E371" type="basicType" outId="ProductId" value="java.lang.String" id="ProductId"/>
+<dataHolder inputId="" name="#FF54A7" type="basicType" outId="RequestedAmount" value="java.lang.Integer" id="RequestedAmount"/>
+<dataHolder inputId="" name="#BBBBBB" type="basicType" outId="inStock" value="java.lang.Boolean" id="inStock"/>
+</form>
