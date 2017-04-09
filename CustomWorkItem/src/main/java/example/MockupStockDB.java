@@ -36,7 +36,7 @@ public class MockupStockDB implements java.io.Serializable {
     
     static {
         
-        System.out.println("initializing stock database");
+        System.out.println("Initializing stock database");
         
         stockDB.put("nokia",5);
         stockDB.put("macbook",0);

@@ -136,7 +136,7 @@
       </bpmn2:extensionElements>
       <bpmn2:incoming>_07B28FD5-6714-497B-AE02-311292CB2B40</bpmn2:incoming>
       <bpmn2:outgoing>_E844788E-5E76-4095-8C74-F371F02E6521</bpmn2:outgoing>
-      <bpmn2:script><![CDATA[System.out.println("process is about to end with order in stock");]]></bpmn2:script>
+      <bpmn2:script><![CDATA[System.out.println("Process is about to end with order in stock");]]></bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_07B28FD5-6714-497B-AE02-311292CB2B40" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" name="YES" sourceRef="_58389FF7-5B29-4DF7-A9DB-9BF3F9DEF5A1" targetRef="_6CB2961C-F8F4-45AF-B612-3A71C21CC37D">
       <bpmn2:extensionElements>
@@ -154,7 +154,7 @@
       </bpmn2:extensionElements>
       <bpmn2:incoming>_47357CCA-FD47-44FC-BB67-C49AFECCBF2F</bpmn2:incoming>
       <bpmn2:outgoing>_FC470782-5568-4D44-A508-42E6432C568C</bpmn2:outgoing>
-      <bpmn2:script><![CDATA[System.out.println("process is about to end with order NOT in stock");]]></bpmn2:script>
+      <bpmn2:script><![CDATA[System.out.println("Process is about to end with order NOT in stock");]]></bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_47357CCA-FD47-44FC-BB67-C49AFECCBF2F" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" name="NO" sourceRef="_58389FF7-5B29-4DF7-A9DB-9BF3F9DEF5A1" targetRef="_D60D9772-9604-4611-ACA0-6EEBA99A79A6">
       <bpmn2:extensionElements>
