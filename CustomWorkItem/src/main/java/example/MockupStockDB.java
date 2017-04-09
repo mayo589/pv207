@@ -26,7 +26,7 @@ public class MockupStockDB implements java.io.Serializable {
     
     public static Integer decreaseStockStatus (String key,Integer amount) {
         
-        System.out.println("Decreasing stock status of product:"+key+", by amount -"+amount);
+        System.out.println("Decreasing stock status of product:"+ key+", by amount -"+amount);
         
         Integer orig = stockDB.get(key);
         Integer newValue = orig - amount;
