@@ -1,0 +1,19 @@
+package org.muni.fi.businessrules;
+
+
+import java.util.List
+import org.muni.fi.businessrules.Student
+
+rule "Check HW1 and HW2-Task1"
+//add ruleflow-group attribute, value can be arbitrary
+when
+   //when there is a List of students, bind this list to some variable
+   
+   //when there is an instance of Student *from* the variable obtained in first condition,
+   //with points from both homeworks equal to 0
+
+
+then
+// print out that student UCO
+// remove this student from the list of students
+end

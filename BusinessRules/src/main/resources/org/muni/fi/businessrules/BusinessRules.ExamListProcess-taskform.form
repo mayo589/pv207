@@ -1,0 +1,20 @@
+
+<form id="1352192703">
+<property name="name" value="BusinessRules.ExamListProcess-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name="number_of_students" type="InputTextInteger" id="1220513357">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;SSClassquot;,quot;quot;quot;SSStylequot;,quot;quot;quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Number of PV207 studentsquot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="number_of_students"/>
+<property name="fieldClass" value="java.lang.Integer"/>
+</field>
+<dataHolder inputId="" name="#B29FE4" type="basicType" outId="number_of_students" value="java.lang.Integer" id="number_of_students"/>
+<dataHolder inputId="" name="#E9E371" type="basicType" outId="p_student_list" value="java.util.List" id="p_student_list"/>
+<dataHolder inputId="" name="#9BCAFA" type="dataModelerEntry" outId="student_to_evaluate" value="org.muni.fi.businessrules.Student" id="student_to_evaluate"/>
+<dataHolder inputId="" name="#BBBBBB" type="basicType" outId="uco" value="java.lang.Integer" id="uco"/>
+<dataHolder inputId="" name="#FF54A7" type="basicType" outId="ucos" value="java.util.List" id="ucos"/>
+</form>

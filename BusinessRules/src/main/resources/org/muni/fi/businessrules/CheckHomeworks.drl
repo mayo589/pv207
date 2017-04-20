@@ -1,0 +1,15 @@
+package org.muni.fi.businessrules;
+
+import java.util.List
+import org.muni.fi.businessrules.Student
+
+rule "Check HW1 and HW2"
+ruleflow-group "homeworks"
+when
+   $students : List()
+   $student : Student ( hw1 ==  0, hw2 == 0) from $students
+
+then
+System.out.println("Student "+$student.getUco()+" failed the course");
+$students.remove($student);
+end

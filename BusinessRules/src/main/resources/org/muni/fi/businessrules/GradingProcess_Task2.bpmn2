@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_i7X24CQ-EeeHo_PAVFbMOw" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:process id="BusinessRules.GradingProcess_Task2" drools:packageName="org.jbpm" drools:version="1.0" name="GradingProcess_Task2
+" isExecutable="true">
+    <bpmn2:extensionElements>
+      <drools:import name="org.muni.fi.businessrules.Student"/>
+    </bpmn2:extensionElements>
+    <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>_C5D97655-C211-4FAF-825E-4C01003FFB36</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="_34EF6D0B-40C7-4D0B-9715-32AEF6BB148A" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Generate N Random Students" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Generate N Random Students]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_C5D97655-C211-4FAF-825E-4C01003FFB36</bpmn2:incoming>
+      <bpmn2:outgoing>_96BCEA26-BE71-415F-9B90-9D86D96FB94C</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[Integer NumberOfStudents = (Integer)kcontext.getVariable("number_of_students");
+
+
+System.out.println("Initializing "+NumberOfStudents+" random students");
+java.util.List<Student> myList = new java.util.ArrayList<Student>();
+
+int counter = 0;
+
+for (int i = 0; i< NumberOfStudents;i++) {
+Student s = new Student();
+  
+ s.setProject(java.util.concurrent.ThreadLocalRandom.current().nextInt(0, 40+1));
+ s.setBonus(java.util.concurrent.ThreadLocalRandom.current().nextInt(0, 5));
+  
+  if (s.getBonus() % 2 == 0) {
+  s.setHw1(0);
+  s.setHw2(0);
+  counter++;
+  }
+  else {
+  
+   s.setHw1(java.util.concurrent.ThreadLocalRandom.current().nextInt(0, 8 + 1));
+   s.setHw2(java.util.concurrent.ThreadLocalRandom.current().nextInt(0, 12 + 1));
+  }
+  
+ s.setUco(java.util.concurrent.ThreadLocalRandom.current().nextInt(300000, 499999+1));
+ myList.add(s);
+}
+
+kcontext.setVariable("p_student_list",myList);
+System.out.println(counter + " students are doomed to fail PV207");]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="_C5D97655-C211-4FAF-825E-4C01003FFB36" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="processStartEvent" targetRef="_34EF6D0B-40C7-4D0B-9715-32AEF6BB148A"/>
+    <bpmn2:endEvent id="_8B7A9A89-3F0E-4A9E-B26F-CACBD7E9FDE6" drools:selectable="true" color:background-color="#ff6347" color:border-color="#000000" color:color="#000000" name="">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_96BCEA26-BE71-415F-9B90-9D86D96FB94C</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_96BCEA26-BE71-415F-9B90-9D86D96FB94C" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_34EF6D0B-40C7-4D0B-9715-32AEF6BB148A" targetRef="_8B7A9A89-3F0E-4A9E-B26F-CACBD7E9FDE6"/>
+    <bpmn2:textAnnotation id="_D2BDA285-9E22-4519-B66F-0738EAC9E114" drools:selectable="true" color:background-color="" color:border-color="#000000" color:color="#000000">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[- Define two Process variables (find out their names and data type from the Script Task)
+- Add "business rule task" (start->script->rule task->end)
+- Configure this rule task with ruleflow attribute create in the Task1
+- Add input assignment (from list of students)
+- Add output assignment (to list of students)
+- Make sure input and output assignments have the same name]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:text>- Define two Process variables (find out their names and data type from the Script Task) - Add &quot;business rule task&quot; (start-&gt;script-&gt;rule task-&gt;end) - Configure this rule task with ruleflow attribute create in the Task1 - Add input assignment (from list of students) - Add output assignment (to list of students) - Make sure input and output assignments have the same name</bpmn2:text>
+    </bpmn2:textAnnotation>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_i7X24SQ-EeeHo_PAVFbMOw">
+    <bpmndi:BPMNPlane id="_i7X24iQ-EeeHo_PAVFbMOw" bpmnElement="BusinessRules.GradingProcess_Task2">
+      <bpmndi:BPMNShape id="_i7X24yQ-EeeHo_PAVFbMOw" bpmnElement="processStartEvent">
+        <dc:Bounds height="30.0" width="30.0" x="60.0" y="165.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_i7X25CQ-EeeHo_PAVFbMOw" bpmnElement="_34EF6D0B-40C7-4D0B-9715-32AEF6BB148A">
+        <dc:Bounds height="80.0" width="100.0" x="135.0" y="135.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_i7X25SQ-EeeHo_PAVFbMOw" bpmnElement="_8B7A9A89-3F0E-4A9E-B26F-CACBD7E9FDE6">
+        <dc:Bounds height="28.0" width="28.0" x="270.0" y="166.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_i7X25iQ-EeeHo_PAVFbMOw" bpmnElement="_D2BDA285-9E22-4519-B66F-0738EAC9E114">
+        <dc:Bounds height="135.0" width="321.0" x="330.0" y="60.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_i7X25yQ-EeeHo_PAVFbMOw" bpmnElement="_C5D97655-C211-4FAF-825E-4C01003FFB36" sourceElement="_i7X24yQ-EeeHo_PAVFbMOw" targetElement="_i7X25CQ-EeeHo_PAVFbMOw">
+        <di:waypoint xsi:type="dc:Point" x="75.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="185.0" y="175.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_i7X26CQ-EeeHo_PAVFbMOw" bpmnElement="_96BCEA26-BE71-415F-9B90-9D86D96FB94C" sourceElement="_i7X25CQ-EeeHo_PAVFbMOw" targetElement="_i7X25SQ-EeeHo_PAVFbMOw">
+        <di:waypoint xsi:type="dc:Point" x="185.0" y="175.0"/>
+        <di:waypoint xsi:type="dc:Point" x="284.0" y="180.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="_i7X26SQ-EeeHo_PAVFbMOw" type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters" baseTimeUnit="min"/>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_8B7A9A89-3F0E-4A9E-B26F-CACBD7E9FDE6" id="_i7X26iQ-EeeHo_PAVFbMOw">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_96BCEA26-BE71-415F-9B90-9D86D96FB94C" id="_i7X26yQ-EeeHo_PAVFbMOw">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_34EF6D0B-40C7-4D0B-9715-32AEF6BB148A" id="_i7X27CQ-EeeHo_PAVFbMOw">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C5D97655-C211-4FAF-825E-4C01003FFB36" id="_i7X27SQ-EeeHo_PAVFbMOw">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="processStartEvent" id="_i7X27iQ-EeeHo_PAVFbMOw">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_i7X24CQ-EeeHo_PAVFbMOw</bpmn2:source>
+    <bpmn2:target>_i7X24CQ-EeeHo_PAVFbMOw</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
