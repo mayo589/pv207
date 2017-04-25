@@ -1,0 +1,9 @@
+
+<form id="1350753147">
+<property name="name" value="MiSubProcess-UI.MIExample-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<dataHolder inputId="" name="#BBBBBB" type="basicType" outId="mi_items" value="java.util.List" id="mi_items"/>
+<dataHolder inputId="" name="#FF54A7" type="dataModelerEntry" outId="p_item" value="org.muni.fi.misubprocess_ui.Item" id="p_item"/>
+<dataHolder inputId="" name="#E9E371" type="dataModelerEntry" outId="p_order" value="org.muni.fi.misubprocess_ui.Order" id="p_order"/>
+</form>
