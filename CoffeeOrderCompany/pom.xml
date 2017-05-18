@@ -7,7 +7,7 @@
   <version>1.0</version>
   <packaging>kjar</packaging>
   <name>CoffeeOrderCompany</name>
-  <description>fg</description>
+  <description>fgtg</description>
   <dependencies>
     <dependency>
       <groupId>org.muni.fi</groupId>
