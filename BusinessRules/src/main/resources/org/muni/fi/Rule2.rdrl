@@ -1,0 +1,9 @@
+package org.muni.fi;
+
+import java.lang.Number;
+
+rule "Rule2"
+	dialect "mvel"
+	when
+	then
+end
