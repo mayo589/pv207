@@ -1,0 +1,9 @@
+package org;
+
+import java.lang.Number;
+
+rule "ert"
+	dialect "mvel"
+	when
+	then
+end
