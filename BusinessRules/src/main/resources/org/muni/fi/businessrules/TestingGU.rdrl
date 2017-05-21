@@ -1,0 +1,9 @@
+package org.muni.fi.businessrules;
+
+import java.lang.Number;
+
+rule "TestingGU"
+	dialect "mvel"
+	when
+	then
+end
