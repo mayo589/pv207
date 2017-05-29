@@ -33,7 +33,7 @@
 <property name="readonly" value="false"/>
 <property name="isHTML" value="false"/>
 <property name="hideContent" value="false"/>
-<property name="outputBinding" value="email"/>
+<property name="outputBinding" value="t_o_email"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
 </form>
