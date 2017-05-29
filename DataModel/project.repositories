@@ -3,32 +3,8 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>bpm-plugin-610</id>
-        <url>https://maven.repository.redhat.com/techpreview/all/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>jboss-plugin</id>
-        <url>http://snapshots.jboss.org/maven2/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>bpm-main-610</id>
-        <url>https://maven.repository.redhat.com/techpreview/all/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
         <id>local</id>
-        <url>/Users/osiris/.m2/repository</url>
+        <url>C:\Users\marek/.m2/repository</url>
         <source>LOCAL</source>
       </metadata>
     </repository>
@@ -37,7 +13,7 @@
       <metadata>
         <id>guvnor-m2-repo</id>
         <url>http://localhost:8080/business-central/maven2/</url>
-        <source>SETTINGS</source>
+        <source>PROJECT</source>
       </metadata>
     </repository>
     <repository>
@@ -46,22 +22,6 @@
         <id>central</id>
         <url>https://repo.maven.apache.org/maven2</url>
         <source>PROJECT</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>fusesource-plugin</id>
-        <url>http://repo.fusesource.com/nexus/content/groups/public/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>internal-bpm</id>
-        <url>http://download.lab.bos.redhat.com/brewroot/repos/jb-bxms-6.4-build/latest/maven/</url>
-        <source>SETTINGS</source>
       </metadata>
     </repository>
   </repositories>
